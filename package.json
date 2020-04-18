@@ -1,0 +1,21 @@
+{
+  "name": "@kucukkanat/emitter",
+  "description": "A simple better event emitter",
+  "keywords": ["event", "emitter", "isomorphic", "events", "nodejs", "Javascript", "mitt", "eventemitter"],
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "files": ["dist","README.md","src"],
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": "https://github.com/kucukkanat/emitter.git",
+  "license": "MIT",
+  "devDependencies": {
+    "husky": "^4.2.5",
+    "prettier": "^2.0.4",
+    "typescript": "^3.8.3"
+  }
+}
