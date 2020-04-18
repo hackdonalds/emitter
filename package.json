@@ -2,7 +2,7 @@
   "name": "@hackdonalds/emitter",
   "description": "A simple better event emitter",
   "keywords": ["event", "emitter", "isomorphic", "events", "nodejs", "Javascript", "mitt", "eventemitter"],
-  "version": "0.2.0",
+  "version": "0.3.0",
   "main": "dist/index.js",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
