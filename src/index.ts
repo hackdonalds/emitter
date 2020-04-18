@@ -6,8 +6,8 @@ type EventHandlerList = Array<EventHandler>;
 type WildCardEventHandlerList = Array<WildCardEventHandler>;
 // A map of event types and their corresponding event handlers.
 type EventHandlerMap = {
-  '*'?: WildCardEventHandlerList,
-  [type: string]: EventHandlerList,
+    '*'?: WildCardEventHandlerList,
+    [type: string]: EventHandlerList,
 };
 
 export default class Emitter {
@@ -50,4 +50,8 @@ export default class Emitter {
         (this.listeners[type] || []).slice().map((handler) => { handler(evt); });
         (this.listeners['*'] || []).slice().map((handler) => { handler(type, evt); });
     }
+}
+
+if (typeof window !== "undefined") {
+    (window as any).HackDonalds = { Emitter }
 }
