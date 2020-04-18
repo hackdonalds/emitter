@@ -11,7 +11,7 @@
   "scripts": {
     "build": "tsc"
   },
-  "repository": "https://github.com/kucukkanat/emitter.git",
+  "repository": "https://github.com/hackdonalds/emitter.git",
   "license": "MIT",
   "devDependencies": {
     "husky": "^4.2.5",
