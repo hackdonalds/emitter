@@ -1,5 +1,5 @@
 {
-  "name": "@kucukkanat/emitter",
+  "name": "@hackdonalds/emitter",
   "description": "A simple better event emitter",
   "keywords": ["event", "emitter", "isomorphic", "events", "nodejs", "Javascript", "mitt", "eventemitter"],
   "version": "0.1.0",
