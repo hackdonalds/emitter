@@ -10,7 +10,7 @@ type EventHandlerMap = {
     [type: string]: EventHandlerList,
 };
 
-export default class Emitter {
+export default class Emitter<EventNames> {
     constructor(public listeners: EventHandlerMap = {}) {
         this.listeners = listeners
     }
@@ -20,7 +20,7 @@ export default class Emitter {
 		 * @param  {String} type	Type of event to listen for, or `"*"` for all events
 		 * @param  {Function} handler Function to call in response to given event
 		 */
-    on(type: string, handler: EventHandler) {
+    on(type: string & EventNames, handler: EventHandler) {
         this.listeners[type] = this.listeners[type] || []
         this.listeners[type].push(handler);
     }
@@ -31,7 +31,7 @@ export default class Emitter {
      * @param  {String} type	Type of event to unregister `handler` from, or `"*"`
      * @param  {Function} handler Handler function to remove
      */
-    off(type: string, handler: EventHandler) {
+    off(type: string & EventNames, handler: EventHandler) {
         if (this.listeners[type]) {
             this.listeners[type].splice(this.listeners[type].indexOf(handler) >>> 0, 1);
         }
@@ -46,7 +46,7 @@ export default class Emitter {
      * @param {String} type  The event type to invoke
      * @param {Any} [evt]  Any value (object is recommended and powerful), passed to each handler
      */
-    emit(type: string, evt: any) {
+    emit(type: string & EventNames, evt: any) {
         (this.listeners[type] || []).slice().map((handler) => { handler(evt); });
         (this.listeners['*'] || []).slice().map((handler) => { handler(type, evt); });
     }
