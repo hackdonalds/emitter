@@ -4,6 +4,9 @@
   "keywords": ["event", "emitter", "isomorphic", "events", "nodejs", "Javascript", "mitt", "eventemitter"],
   "version": "0.5.1",
   "main": "dist/index.js",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "files": ["dist","README.md","src"],
   "scripts": {
     "build": "tsc"
