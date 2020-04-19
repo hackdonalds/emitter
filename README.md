@@ -26,10 +26,10 @@ import Emitter from '@hackdonalds/emitter'
 var Emitter = require('@hackdonals/emitter').default
 ```
 
-The [UMD](https://github.com/umdjs/umd) build is also available on [unpkg](https://unpkg.com/@hackdonalds/emitter@0.2.0/dist/index.js):
+The [UMD](https://github.com/umdjs/umd) build is also available on [unpkg](https://unpkg.com/@hackdonalds/emitter@0.5.1/dist/index.js):
 
 ```html
-<script src="https://unpkg.com/@hackdonalds/emitter@0.2.0/dist/index.js"></script>
+<script src="https://unpkg.com/@hackdonalds/emitter@0.5.1/dist/index.js"></script>
 ```
 
 You can find the library on `window.HackDonalds.Emitter`.
@@ -58,6 +58,18 @@ emitter.on('foo', onFoo)   // listen
 emitter.off('foo', onFoo)  // unlisten
 ```
 
+## Typescript
+
+For better autocompletion Emitter class takes parameters for possible event names : 
+
+```js
+import Emitter from '@hackdonalds/emitter'
+const emitter = new Emitter<'foo' | 'bar'>()
+emitter.on('foo', e => console.log('foo', e) )
+emitter.on('bar', e => console.log('foo', e) )
+// Will throw an error:
+emitter.on('bar2', e => console.log('foo', e) )
+```
 
 * * *
 
