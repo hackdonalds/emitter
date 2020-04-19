@@ -46,7 +46,7 @@ export default class Emitter<EventNames> {
      * @param {String} type  The event type to invoke
      * @param {Any} [evt]  Any value (object is recommended and powerful), passed to each handler
      */
-    emit(type: string & EventNames, evt: any) {
+    emit(type: string & EventNames, evt?: any) {
         (this.listeners[type] || []).slice().map((handler) => { handler(evt); });
         (this.listeners['*'] || []).slice().map((handler) => { handler(type, evt); });
     }
