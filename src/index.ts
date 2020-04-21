@@ -10,7 +10,7 @@ type EventHandlerMap = {
     [type: string]: EventHandlerList,
 };
 
-export default class Emitter<EventNames> {
+export default class Emitter<EventNames=any> {
     constructor(public listeners: EventHandlerMap = {}) {
         this.listeners = listeners
     }
