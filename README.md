@@ -125,4 +125,4 @@ If don't, just open a [new clear and descriptive issue](../../issues/new).
 
 ## License
 
-[MIT License](https://opensource.org/licenses/MIT) © [Hilmi Tolga SAHIN](https://kucukkanat.com/)
+[MIT License](https://opensource.org/licenses/MIT) © [Hackdonalds]()
