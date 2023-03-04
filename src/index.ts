@@ -1,26 +1,37 @@
 type EventHandler = (event?: any) => void;
 type WildCardEventHandler = (type: string, event?: any) => void
 
-// An array of all currently registered event handlers for a type
+/**
+ * An array of all currently registered event handlers for a type
+ */
 type EventHandlerList = Array<EventHandler>;
 type WildCardEventHandlerList = Array<WildCardEventHandler>;
-// A map of event types and their corresponding event handlers.
+/**
+ * A map of event types and their corresponding event handlers.
+ */
 type EventHandlerMap = {
     '*'?: WildCardEventHandlerList,
     [type: string]: EventHandlerList,
 };
 
-export default class Emitter<EventNames=any> {
+/**
+ * Emitter class that powers the subscribe packet
+ */
+export class Emitter<EventNames = string> {
+    /**
+     * Use the constructor to initiate the eventbus with handlers
+     * @param {EventHandlerMap} listeners 
+     */
     constructor(public listeners: EventHandlerMap = {}) {
         this.listeners = listeners
     }
     /**
-		 * Register an event handler for the given type.
-		 *
-		 * @param  {String} type	Type of event to listen for, or `"*"` for all events
-		 * @param  {Function} handler Function to call in response to given event
-		 */
-    on(type: string & EventNames, handler: EventHandler) {
+         * Register an event handler for the given type.
+         *
+         * @param  {String} type	Type of event to listen for, or `"*"` for all events
+         * @param  {Function} handler Function to call in response to given event
+         */
+    on(type: (string & EventNames) | "*", handler: EventHandler | WildCardEventHandler) {
         this.listeners[type] = this.listeners[type] || []
         this.listeners[type].push(handler);
     }
@@ -31,9 +42,13 @@ export default class Emitter<EventNames=any> {
      * @param  {String} type	Type of event to unregister `handler` from, or `"*"`
      * @param  {Function} handler Handler function to remove
      */
-    off(type: string & EventNames, handler: EventHandler) {
+    off(type: string & EventNames, handler?: EventHandler | WildCardEventHandler) {
         if (this.listeners[type]) {
-            this.listeners[type].splice(this.listeners[type].indexOf(handler) >>> 0, 1);
+            if (!handler) {
+                delete this.listeners[type]
+            } else {
+                this.listeners[type].splice(this.listeners[type].indexOf(handler) >>> 0, 1);
+            }
         }
     }
 
@@ -53,5 +68,6 @@ export default class Emitter<EventNames=any> {
 }
 
 if (typeof window !== "undefined") {
-    (window as any).HackDonalds = { Emitter }
+    (window as any).__Emitter__ = { Emitter }
 }
+

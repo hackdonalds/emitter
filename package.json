@@ -1,21 +1,36 @@
 {
-  "name": "@hackdonalds/emitter",
+  "name": "subscribe",
   "description": "A simple better event emitter",
-  "keywords": ["event", "emitter", "isomorphic", "events", "nodejs", "Javascript", "mitt", "eventemitter"],
-  "version": "0.6.0",
+  "keywords": [
+    "event",
+    "emitter",
+    "isomorphic",
+    "events",
+    "nodejs",
+    "Javascript",
+    "mitt",
+    "eventemitter"
+  ],
+  "version": "1.0.0",
   "main": "dist/index.js",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
-  "files": ["dist","README.md","src"],
+  "files": [
+    "dist",
+    "README.md",
+    "src"
+  ],
   "scripts": {
-    "build": "tsc"
+    "test": "vitest --ui",
+    "build": "tsc",
+    "docs": "typedoc --options \"typedoc.json\""
   },
-  "repository": "https://github.com/hackdonalds/emitter.git",
+  "repository": "https://github.com/kucukkanat/subscribe.git",
   "license": "MIT",
   "devDependencies": {
+    "@vitest/ui": "^0.29.2",
     "husky": "^4.2.5",
     "prettier": "^2.0.4",
-    "typescript": "^3.8.3"
+    "typedoc": "^0.23.26",
+    "typescript": "^4.9.5",
+    "vitest": "^0.29.2"
   }
 }
